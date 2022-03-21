@@ -5,13 +5,11 @@ import User from '../models/User'
 
 export const home = async (req: Request, res: Response)=>{
 
-   //criando usuario dado no banco com create
-  /* let newUser = await User.create({
-       nome:{primeiroNome:'Edgar',sobrenome:'Santos'},
-       idade:33,
-       email:'edgar@hotmail.com.br',
-       interesses:['jogar videogame','fuebol','faculdade']
-   })*/
+    await User.findOneAndDelete({email:'diego_20@.com'})
+    
+
+
+   let users = await User.find({})
 
    
 
@@ -31,6 +29,8 @@ export const home = async (req: Request, res: Response)=>{
         lastName: 'Pereira',
         showOld,
         expensives: expensiveList,
-        frasesDoDia: []
+        frasesDoDia: [],
+        users
+
     });
 };

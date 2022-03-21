@@ -12,6 +12,9 @@
 <hr/>
 <h2>Usuarios</h2>
 <ul>
+{{#users}}
+    <li>Nome: {{nome.primeiroNome}} - idade: {{idade}} anos <a href="/usuario/{{_id}}/addIdade">+1 ano de vida</a></li>
+{{/users}}
 
 </ul>
 

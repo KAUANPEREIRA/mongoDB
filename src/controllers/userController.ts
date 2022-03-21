@@ -52,10 +52,18 @@ export const addUserAction = async (req:Request, res:Response)=>{
     }
 
 
+}
 
+//função para atualizar idade 
 
-
-    
-    
-
+export const aumentIdade = async(req:Request, res:Response)=>{
+   
+   let id = req.params.id
+   let meuUser = await User.findById({_id:id})
+   if(meuUser){// este if tbm serve pra atualizar
+       meuUser.idade+=1
+       await meuUser.save()
+       res.redirect('/')
+   }
+   
 }
