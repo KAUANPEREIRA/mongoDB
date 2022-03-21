@@ -1,4 +1,6 @@
 import { Request, Response } from 'express';
+import { userInfo } from 'os';
+import User from '../models/User'
 
 export const nome = (req: Request, res: Response) => {
     let nome: string = req.query.nome as string;
@@ -30,3 +32,30 @@ export const idadeAction = (req: Request, res: Response) => {
         mostrarIdade
     });
 };
+
+//função para inserir dados com mongo db
+export const addUserAction = async (req:Request, res:Response)=>{
+    res.redirect('/')
+   
+    let {primeiroNome,sobrenome,idade,email,interesses} = req.body
+    if(primeiroNome && idade !=''){
+    let newUser = new User()
+    newUser.nome={primeiroNome:primeiroNome,sobrenome:sobrenome}
+    newUser.idade = parseInt(idade)
+    newUser.email = email
+    newUser.interesses= interesses.split(',')
+
+    let resultado = await newUser.save()
+    console.log('Usuario inserido com sucesso!')
+    }else{
+        console.log('Houve um problema na inserção dos dados')
+    }
+
+
+
+
+
+    
+    
+
+}

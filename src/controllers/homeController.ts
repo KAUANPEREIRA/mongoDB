@@ -1,8 +1,21 @@
 import { Request, Response } from 'express';
 
 import { Product } from '../models/Product';
+import User from '../models/User'
 
-export const home = (req: Request, res: Response)=>{
+export const home = async (req: Request, res: Response)=>{
+
+   //criando usuario dado no banco com create
+  /* let newUser = await User.create({
+       nome:{primeiroNome:'Edgar',sobrenome:'Santos'},
+       idade:33,
+       email:'edgar@hotmail.com.br',
+       interesses:['jogar videogame','fuebol','faculdade']
+   })*/
+
+   
+
+    
     let age: number = 90;
     let showOld: boolean = false;
 
@@ -17,7 +30,6 @@ export const home = (req: Request, res: Response)=>{
         name: 'Kauan',
         lastName: 'Pereira',
         showOld,
-        products: list,
         expensives: expensiveList,
         frasesDoDia: []
     });

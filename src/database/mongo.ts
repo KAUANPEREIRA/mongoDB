@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-
+//regra pra conexão com mongo db
 export const mongoConnect = async()=>{
 
     try{
