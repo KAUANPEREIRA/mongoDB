@@ -43,7 +43,7 @@ export const addUserAction = async (req:Request, res:Response)=>{
     newUser.nome={primeiroNome:primeiroNome,sobrenome:sobrenome}
     newUser.idade = parseInt(idade)
     newUser.email = email
-    newUser.interesses= interesses.split(',')
+    newUser.interesses= interesses.split(',')//transormando minha string em um array e separando por virgula
 
     let resultado = await newUser.save()
     console.log('Usuario inserido com sucesso!')
